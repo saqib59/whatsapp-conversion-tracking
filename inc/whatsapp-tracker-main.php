@@ -25,7 +25,7 @@ if (!class_exists('WhatsappTracker')) {
 				$whats_track_whatsapp_no = get_option('whats_track_whatsapp_no');
 				$whats_track_text_message = get_option('whats_track_text_message');
 				echo '<a href="https://api.whatsapp.com/send?phone='.$whats_track_whatsapp_no.'&text='.$whats_track_text_message.'" class="float" target="_blank">
-					<i class="fa fa-whatsapp my-float"></i>
+					lololo
 					</a>';
 			?>
 			
