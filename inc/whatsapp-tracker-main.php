@@ -43,7 +43,8 @@ if (!class_exists('WhatsappTracker')) {
 				echo $whats_track_event_snippet;
 				// echo "</script>";
 				?>
-				<a href="https://api.whatsapp.com/send?phone=<?= $whats_track_whatsapp_no; ?>&text=<?= $whats_track_text_message;?>" 
+				<!-- href="https://api.whatsapp.com/send?phone=<?= $whats_track_whatsapp_no; ?>&text=<?= $whats_track_text_message;?>" -->
+				<a  
  					onclick='gtag_report_conversion("https://api.whatsapp.com/send?phone=<?= $whats_track_whatsapp_no; ?>&text=<?= $whats_track_text_message;?>")' class="float" target="_blank">
 					<i class="fa fa-whatsapp my-float"></i>
 					</a>
