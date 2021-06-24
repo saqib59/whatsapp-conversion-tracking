@@ -12,22 +12,46 @@ if (!class_exists('WhatsappTracker')) {
 			/*Register Styling Scripts*/
 			add_action('admin_enqueue_scripts', array($this, 'whatsapp_tracker_script_styles'));
 			add_action('wp_enqueue_scripts', array($this, 'whatsapp_tracker_style_frontend'));
-			add_action('wp_footer', array($this, 'whatsapp_tracker_frontend'));
+			add_action('wp_footer', array($this, 'whatsapp_tracker_frontend_footer'));
+			add_action('wp_head', array($this, 'whatsapp_tracker_frontend_header'));
 		}
 
 		
+		public function whatsapp_tracker_frontend_header() {
+			if (!empty(get_option('whats_track_global_tag'))) {
+				$whats_track_global_tag = get_option('whats_track_global_tag');
+
+				$whats_track_global_tag = str_replace("\\","",$whats_track_global_tag);
+
+				echo $whats_track_global_tag;
+
+			}
+
+		}
 		public function whatsapp_tracker_style_frontend() {
 			wp_enqueue_style('custom-css', WHATSAPP_CONV_TRACK_URL . '/assets/css/custom-frontend.css');
 			wp_enqueue_style('custom-css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 		}
-		public function whatsapp_tracker_frontend() {
+		public function whatsapp_tracker_frontend_footer() {
 			if (!empty(get_option('whats_track_whatsapp_no'))) {
 				$whats_track_whatsapp_no = get_option('whats_track_whatsapp_no');
 				$whats_track_text_message = get_option('whats_track_text_message');
-				echo '<a href="https://api.whatsapp.com/send?phone='.$whats_track_whatsapp_no.'&text='.$whats_track_text_message.'" class="float" target="_blank">
+				$whats_track_event_snippet = get_option('whats_track_event_snippet');
+				$whats_track_event_snippet = str_replace("\\","",$whats_track_event_snippet);
+				
+				// echo "<script>";
+				echo $whats_track_event_snippet;
+				// echo "</script>";
+				?>
+				<a href="https://api.whatsapp.com/send?phone=<?= $whats_track_whatsapp_no; ?>&text=<?= $whats_track_text_message;?>" 
+ 					onclick='gtag_report_conversion("https://api.whatsapp.com/send?phone=<?= $whats_track_whatsapp_no; ?>&text=<?= $whats_track_text_message;?>")' class="float" target="_blank">
 					<i class="fa fa-whatsapp my-float"></i>
-					</a>';
-			?>
+					</a>
+				<?php
+				// echo '<a onclick=gtag_report_conversion("https://api.whatsapp.com/send?phone='.$whats_track_whatsapp_no.'&text='.$whats_track_text_message.'") class="float" target="_blank">
+				// 	<i class="fa fa-whatsapp my-float"></i>
+				// 	</a>';
+								?>
 			
 			<?php
 			}

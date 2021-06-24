@@ -22,8 +22,10 @@ if (!class_exists('WhatsappTrackerAjax')) {
 				$total_changes = 0;
 				$whats_track_whatsapp_no = $this->whatsapp_tracker_validator($_POST['whats_track_whatsapp_no'], 'textfield');
 				$whats_track_text_message = $this->whatsapp_tracker_validator($_POST['whats_track_text_message'], 'textfield');
-				$whats_track_global_tag = $this->whatsapp_tracker_validator($_POST['whats_track_global_tag'], 'textfield');
-				$whats_track_event_snippet = $this->whatsapp_tracker_validator($_POST['whats_track_event_snippet'], 'textfield');
+				// $whats_track_global_tag = $this->whatsapp_tracker_validator($_POST['whats_track_global_tag'], 'textfield');
+				// $whats_track_event_snippet = $this->whatsapp_tracker_validator($_POST['whats_track_event_snippet'], 'textfield');
+				$whats_track_global_tag = $_POST['whats_track_global_tag'];
+				$whats_track_event_snippet = $_POST['whats_track_event_snippet'];
 			   update_option('whats_track_whatsapp_no', $whats_track_whatsapp_no);
 			   update_option('whats_track_text_message', $whats_track_text_message);
 			   update_option('whats_track_global_tag', $whats_track_global_tag);

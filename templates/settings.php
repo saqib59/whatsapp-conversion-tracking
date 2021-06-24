@@ -28,7 +28,8 @@ exit;
             <label for="country"><?php _e('Global Site Tag:', 'whatsapp-tracker');?></label>
          </div>
          <div class="col-75">
-            <textarea id="subject"  name="whats_track_global_tag" style="height:200px"> <?= get_option('whats_track_global_tag'); ?></textarea>
+            <textarea id="subject"  name="whats_track_global_tag" style="height:200px"><?= str_replace("\\","",get_option('whats_track_global_tag'));
+             ?></textarea>
          </div>
       </div>
       <div class="row">
@@ -36,7 +37,8 @@ exit;
             <label for="country"><?php _e('Event Snippet (Click):', 'whatsapp-tracker');?></label>
          </div>
          <div class="col-75">
-            <textarea id="subject" name="whats_track_event_snippet" style="height:200px"> <?= get_option('whats_track_event_snippet'); ?></textarea>
+            <textarea id="subject" name="whats_track_event_snippet" style="height:200px"> <?= str_replace("\\","",get_option('whats_track_event_snippet'));
+             ?></textarea>
          </div>
       </div>
       <div class="row">
