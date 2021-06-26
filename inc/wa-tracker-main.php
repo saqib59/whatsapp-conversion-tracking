@@ -60,12 +60,12 @@ if (!class_exists('WhatsappTracker')) {
 
 		public function whatsapp_tracker_menu() {
 			if (is_admin()) {
-				add_menu_page('Whatsapp Tracker', 'Whatsapp Tracker', 'edit_pages', 'whatsapp-tracker', array($this, 'whatsapp_tracker_ultra_settings'), 'dashicons-location-alt', 30);
+				add_menu_page('Whatsapp Tracker', 'Whatsapp Tracker', 'edit_pages', 'wa-tracker', array($this, 'whatsapp_tracker_ultra_settings'), 'dashicons-location-alt', 30);
 			}
 
 		}
 		public function whatsapp_tracker_script_styles($hook) {
-			if ($hook != 'toplevel_page_whatsapp-tracker') {
+			if ($hook != 'toplevel_page_wa-tracker') {
 				return;
 			}
 
@@ -84,7 +84,7 @@ if (!class_exists('WhatsappTracker')) {
 			if (is_admin() && current_user_can('manage_options')) {
 				require WHATSAPP_CONV_TRACK_PATH . '/templates/settings.php';
 			} else {
-				_e('Denied ! Only admin can see this.', 'whatsapp-tracker');
+				_e('Denied ! Only admin can see this.', 'wa-tracker');
 			}
 
 		}

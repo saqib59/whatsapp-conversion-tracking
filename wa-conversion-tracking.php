@@ -9,7 +9,7 @@ License: GPLv2
 Author URI: https://www.fiverr.com/saqibali862
 Requires at least: 5.0
 Tested up to: 5.7
-Text Domain: whatsapp-tracker
+Text Domain: wa-tracker
  */
 
 define('WHATSAPP_CONV_TRACK_PATH', dirname(__FILE__));
