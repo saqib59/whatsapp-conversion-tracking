@@ -30,7 +30,7 @@ if (!class_exists('WATracker')) {
 		}
 		public function wa_tracker_style_frontend() {
 			wp_enqueue_style('custom-css', WA_CONV_TRACK_URL . '/assets/css/custom-frontend.css');
-			wp_enqueue_style('custom-css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+			wp_enqueue_style('font-awesome-css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 		}
 		public function wa_tracker_frontend_footer() {
 			if (!empty(get_option('whats_track_wa_no'))) {
