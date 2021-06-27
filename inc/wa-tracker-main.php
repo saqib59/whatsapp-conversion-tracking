@@ -44,8 +44,8 @@ if (!class_exists('WATracker')) {
 				// echo "</script>";
 				?>
 				<!-- href="https://api.whatsapp.com/send?phone=<?= $whats_track_wa_no; ?>&text=<?= $whats_track_text_message;?>" -->
-				<a  
- 					onclick='gtag_report_conversion("https://api.whatsapp.com/send?phone=<?= $whats_track_wa_no; ?>&text=<?= $whats_track_text_message;?>")' class="float" target="_blank">
+				<a href="<?= WA_CONV_TRACK_URL."/templates/redir.php" ?>" 
+ 					 class="float" target="_blank">
 					<i class="fa fa-whatsapp my-float"></i>
 					</a>
 				<?php
