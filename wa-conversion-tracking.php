@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Whatsapp Conversion Tracking
+Plugin Name: WA Conversion Tracking
 Plugin URI:
-Description: Whatsapp Conversion Tracking with Google Ads
+Description: WA Conversion Tracking with Google Ads
 Version: 1.0
 Author: Saqib Ali
 License: GPLv2
@@ -12,9 +12,9 @@ Tested up to: 5.7
 Text Domain: wa-tracker
  */
 
-define('WHATSAPP_CONV_TRACK_PATH', dirname(__FILE__));
+define('WA_CONV_TRACK_PATH', dirname(__FILE__));
 $plugin = plugin_basename(__FILE__);
-define('WHATSAPP_CONV_TRACK_URL', plugin_dir_url($plugin));
+define('WA_CONV_TRACK_URL', plugin_dir_url($plugin));
 
-require WHATSAPP_CONV_TRACK_PATH . '/inc/wa-tracker-main.php';
-require WHATSAPP_CONV_TRACK_PATH . '/inc/wa-tracker-ajax.php';
+require WA_CONV_TRACK_PATH . '/inc/wa-tracker-main.php';
+require WA_CONV_TRACK_PATH . '/inc/wa-tracker-ajax.php';

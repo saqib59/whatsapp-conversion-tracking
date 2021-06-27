@@ -1,10 +1,10 @@
 (function($){
 
-  $("#whatsapp-tracker-form").submit(function(event) {
+  $("#wa-tracker-form").submit(function(event) {
         event.preventDefault();
     $(this).validate({
         rules: {
-            'whats_track_whatsapp_no': {required: true,digits: true},
+            'whats_track_wa_no': {required: true,digits: true},
             'whats_track_text_message': {required: true},
             'whats_track_global_tag': {required: true},
             'whats_track_event_snippet': {required: true},
