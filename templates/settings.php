@@ -8,6 +8,32 @@ exit;
    <form action="/action_page.php" id="wa-tracker-form">
       <div class="row">
          <div class="col-25">
+            <label for="whats_track_enable_plugin"><?php _e('Enable Plugin', 'wa-tracker');?></label>
+         </div>
+         <div class="col-75">
+            <input type="checkbox" value="1" <?= (get_option('whats_track_enable_plugin') == '1'? 'checked': ''); ?> id="whats_track_enable_plugin" name="whats_track_enable_plugin">
+         </div>
+      </div>
+         <div class="row">
+            <div class="col-25">
+              <label for="whats_track_redirect_page">Page to redirect</label>
+            </div>
+         <div class="col-75">
+           <select id="whats_track_redirect_page" name="whats_track_redirect_page">
+             <option value="">Select Redirect Page</option>
+        <?php
+        $pages = get_pages();
+           foreach ($pages as $page) {
+            ?>
+            <option value="<?= $page->post_name;?>" <?= ((get_option('whats_track_redirect_page') == $page->post_name)? 'selected': ''); ?>> <?= $page->post_title; ?></option>
+            <?php
+           }
+           ?>
+           </select>
+         </div>
+    </div>
+       <div class="row">
+         <div class="col-25">
             <label for="fname"><?php _e('WA Phone Number:', 'wa-tracker');?></label>
          </div>
          <div class="col-75">

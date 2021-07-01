@@ -16,35 +16,33 @@ if (!class_exists('WATracker')) {
 			add_action('wp_head', array($this, 'wa_tracker_frontend_header'));
 		}
 
-		
 		public function wa_tracker_frontend_header() {
-			if (!empty(get_option('whats_track_global_tag'))) {
+			if (!empty(get_option('whats_track_enable_plugin'))) {
 				$whats_track_global_tag = get_option('whats_track_global_tag');
 
 				$whats_track_global_tag = str_replace("\\","",$whats_track_global_tag);
 
 				echo $whats_track_global_tag;
-
 			}
-
 		}
 		public function wa_tracker_style_frontend() {
 			wp_enqueue_style('custom-css', WA_CONV_TRACK_URL . '/assets/css/custom-frontend.css');
 			wp_enqueue_style('font-awesome-css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 		}
 		public function wa_tracker_frontend_footer() {
-			if (!empty(get_option('whats_track_wa_no'))) {
+			if (!empty(get_option('whats_track_enable_plugin'))) {
 				$whats_track_wa_no = get_option('whats_track_wa_no');
 				$whats_track_text_message = get_option('whats_track_text_message');
 				$whats_track_event_snippet = get_option('whats_track_event_snippet');
 				$whats_track_event_snippet = str_replace("\\","",$whats_track_event_snippet);
+				$whats_track_redirect_page = get_option('whats_track_redirect_page');
 				
 				// echo "<script>";
-				echo $whats_track_event_snippet;
+				// echo $whats_track_event_snippet;
 				// echo "</script>";
 				?>
 				<!-- href="https://api.whatsapp.com/send?phone=<?= $whats_track_wa_no; ?>&text=<?= $whats_track_text_message;?>" -->
-				<a href="<?= WA_CONV_TRACK_URL."/templates/redir.php" ?>" 
+				<a href="<?= home_url()."/".$whats_track_redirect_page; ?>" 
  					 class="float" target="_blank">
 					<i class="fa fa-whatsapp my-float"></i>
 					</a>

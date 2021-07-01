@@ -22,6 +22,9 @@ if (!class_exists('WATrackerAjax')) {
 				$total_changes = 0;
 				$whats_track_wa_no = $this->wa_tracker_validator($_POST['whats_track_wa_no'], 'textfield');
 				$whats_track_text_message = $this->wa_tracker_validator($_POST['whats_track_text_message'], 'textfield');
+				$whats_track_enable_plugin = $this->wa_tracker_validator($_POST['whats_track_enable_plugin'], 'textfield');
+				$whats_track_redirect_page = $this->wa_tracker_validator($_POST['whats_track_redirect_page'], 'textfield');
+				
 				// $whats_track_global_tag = $this->wa_tracker_validator($_POST['whats_track_global_tag'], 'textfield');
 				// $whats_track_event_snippet = $this->wa_tracker_validator($_POST['whats_track_event_snippet'], 'textfield');
 				$whats_track_global_tag = $_POST['whats_track_global_tag'];
@@ -30,12 +33,14 @@ if (!class_exists('WATrackerAjax')) {
 			   update_option('whats_track_text_message', $whats_track_text_message);
 			   update_option('whats_track_global_tag', $whats_track_global_tag);
 			   update_option('whats_track_event_snippet', $whats_track_event_snippet);
+			   update_option('whats_track_enable_plugin', $whats_track_enable_plugin);
+			   update_option('whats_track_redirect_page', $whats_track_redirect_page);
 
 				$response['message'] = "Records are updated";
 				$response['status'] = true;
 			}
-			$this->responseJsonResults($response);
-		}
+			$this->responseJsonResults($response)
+;		}
 		private function responseJsonResults($data) {
 			header('Content-Type: application/json');
 			echo json_encode($data);

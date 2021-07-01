@@ -8,6 +8,7 @@
             'whats_track_text_message': {required: true},
             'whats_track_global_tag': {required: true},
             'whats_track_event_snippet': {required: true},
+            'whats_track_redirect_page': {required: true},
         }
     });
     var valid = $(this).valid();
